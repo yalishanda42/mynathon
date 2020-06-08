@@ -63,27 +63,28 @@ class MythonParser:
         token_stack = []
         tokens_gen = tokenize(BytesIO(contents.encode('utf-8')).readline)
         for toktype, tokval, _, _, _ in tokens_gen:
-            if toktype != NAME:
+            if toktype != NAME:  # all keywords are names so ignore other types
                 result.append((toktype, tokval))
                 continue
 
+            # Mython keywords can consist of more than one 'word'
+            # so use a stack to persist words of possible detected keywords
+            # between the generator iterations
             token_stack.append((toktype, tokval))
-            stack_word = " ".join(map(lambda t: t[1], token_stack))
+            stack_stmt = " ".join(map(lambda t: t[1], token_stack))
 
             if tokval in keywords:
                 result.append((NAME, keyword_dict[tokval]))
                 token_stack = []
-            elif stack_word in keywords:
-                result.append((NAME, keyword_dict[stack_word]))
+            elif stack_stmt in keywords:
+                result.append((NAME, keyword_dict[stack_stmt]))
                 token_stack = []
-            elif len(list(filter(lambda k: stack_word in k, keywords))) == 0:
+            elif len(list(filter(lambda k: stack_stmt in k, keywords))) == 0:
                 result.extend(token_stack)
                 token_stack = []
 
         return untokenize(result).decode('utf-8')
 
-
-TEMPFILE = "/tmp/mythontempfile"
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -94,6 +95,8 @@ if __name__ == '__main__':
         contents = fread.read()
 
     contents = MythonParser.to_python_string(contents)
+
+    TEMPFILE = "/tmp/mythontempfile"
 
     with open(TEMPFILE, "w+") as fwrite:
         fwrite.write(contents)
