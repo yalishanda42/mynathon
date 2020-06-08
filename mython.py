@@ -60,3 +60,4 @@ if __name__ == '__main__':
         fwrite.write(contents)
 
     os.system(f"cat {TEMPFILE} | python3")
+    os.remove(TEMPFILE)
