@@ -1,7 +1,6 @@
 # MYTHON
 
 ##  Примери
-
 ``` python
 def factorial(number):
     if number < 0:

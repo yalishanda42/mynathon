@@ -1,5 +1,12 @@
 #!python3
 
+"""Mython.
+
+The language of 411.
+
+(c) 2020 AJ & MC Ton4ou
+"""
+
 import sys
 import os
 import re
