@@ -54,6 +54,8 @@ class MythonParser:
         "многонишково": "async",
     }
 
+    TEMPFILE = "/tmp/mythontempfile"
+
     @staticmethod
     def to_python_string(contents):
         """Transform a mython code string into a python code string."""
@@ -85,21 +87,32 @@ class MythonParser:
 
         return untokenize(result).decode('utf-8')
 
+    @staticmethod
+    def execute_script_from_file(filename, return_output=False):
+        """Parse a mython script from a file and execute it."""
+        with open(filename, "r") as fread:
+            contents = fread.read()
+
+        contents = MythonParser.to_python_string(contents)
+
+        with open(MythonParser.TEMPFILE, "w+") as fwrite:
+            fwrite.write(contents)
+
+        command = f"cat {MythonParser.TEMPFILE} | python3"
+
+        result = None
+        if return_output:
+            result = os.popen(command).read()
+        else:
+            os.system(command)
+
+        os.remove(MythonParser.TEMPFILE)
+        return result
+
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print(f"USAGE:\n\t{sys.argv[0]} FILE_NAME")
         exit(1)
 
-    with open(sys.argv[-1], "r") as fread:
-        contents = fread.read()
-
-    contents = MythonParser.to_python_string(contents)
-
-    TEMPFILE = "/tmp/mythontempfile"
-
-    with open(TEMPFILE, "w+") as fwrite:
-        fwrite.write(contents)
-
-    os.system(f"cat {TEMPFILE} | python3")
-    os.remove(TEMPFILE)
+    MythonParser.execute_script_from_file(sys.argv[-1])
