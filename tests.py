@@ -22,6 +22,13 @@ class TestMynathonParser(unittest.TestCase):
 
         self._test_script_from_file("factorial", expected_output)
 
+    def test_quadratic_roots(self):
+        """Run the quadratic_roots.my test case."""
+        expected_output = "x^2 - 3x + 2 = 0 <=> x1 == 1.0; x2 == 2.0\n"\
+                          "x^2 + 2x + 5 = 0 <=> x1 == (-1-2j); x2 == (-1+2j)\n"
+
+        self._test_script_from_file("quadratic_roots", expected_output)
+
     def test_keywords_are_valid(self):
         """Test that the mynathon keywords are not ambiguous."""
         keywords = MynathonParser.KEYWORDS.keys()
