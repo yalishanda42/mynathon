@@ -1,4 +1,4 @@
-# MYTHON
+# Mynathon - Езикът за програмиране за майни и маняци.
 
 ![Build](https://github.com/allexks/mython/workflows/Python%20package/badge.svg)
 
@@ -40,7 +40,7 @@
 * `async` => `многонишково`
 
 ##  Примери
-``` mython
+``` mynathon
 нека факториел(число):
     начи ако число < 0:
         маняк искаш да ме направиш ValueError("Е не може с отрицателно число")
@@ -48,8 +48,17 @@
         готоо майна 1
     иначе:
         готоо майна факториел(число - 1) * число
-```
 
+print(f"Факториелът на 3 е {факториел(3)}, а на нула е {факториел(0)}")
+
+пробвай майна:
+    променлива = факториел(-1)
+яба гръмна ми Exception като нещо:
+    print(нещо)
+кат цяло:
+    print("Готов си")
+```
+Кодът е еквивалентен на:
 ``` python
 def factorial(number):
     if number < 0:
@@ -58,4 +67,13 @@ def factorial(number):
         return 1
     else:
         return factorial(number - 1) * number
+
+print(f"Факториелът на 3 е {factorial(3)}, а на нула е {factorial(0)}")
+
+try:
+    var = factorial(-1)
+except Exception e:
+    print(e)
+finally:
+    print("Готов си")
 ```

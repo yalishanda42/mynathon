@@ -1,6 +1,6 @@
 #!python3
 
-"""Mython.
+"""Mynathon.
 
 The language of 411.
 
@@ -13,8 +13,8 @@ from io import BytesIO
 from tokenize import tokenize, untokenize, NAME
 
 
-class MythonParser:
-    """The class that is capable of converting mython to python."""
+class MynathonParser:
+    """The class that is capable of converting mynathon to python."""
 
     KEYWORDS = {
         "трю": "True",
@@ -54,12 +54,12 @@ class MythonParser:
         "многонишково": "async",
     }
 
-    TEMPFILE = "/tmp/mythontempfile"
+    TEMPFILE = "/tmp/mynathontempfile"
 
     @staticmethod
     def to_python_string(contents):
-        """Transform a mython code string into a python code string."""
-        keyword_dict = MythonParser.KEYWORDS
+        """Transform a mynathon code string into a python code string."""
+        keyword_dict = MynathonParser.KEYWORDS
         keywords = keyword_dict.keys()
         result = []
         token_stack = []
@@ -69,7 +69,7 @@ class MythonParser:
                 result.append((toktype, tokval))
                 continue
 
-            # Mython keywords can consist of more than one 'word'
+            # Mynathon keywords can consist of more than one 'word'
             # so use a stack to persist words of possible detected keywords
             # between the generator iterations
             token_stack.append((toktype, tokval))
@@ -89,16 +89,16 @@ class MythonParser:
 
     @staticmethod
     def execute_script_from_file(filename, return_output=False):
-        """Parse a mython script from a file and execute it."""
+        """Parse a mynathon script from a file and execute it."""
         with open(filename, "r") as fread:
             contents = fread.read()
 
-        contents = MythonParser.to_python_string(contents)
+        contents = MynathonParser.to_python_string(contents)
 
-        with open(MythonParser.TEMPFILE, "w+") as fwrite:
+        with open(MynathonParser.TEMPFILE, "w+") as fwrite:
             fwrite.write(contents)
 
-        command = "cat {0} | python3".format(MythonParser.TEMPFILE)
+        command = "cat {0} | python3".format(MynathonParser.TEMPFILE)
 
         result = None
         if return_output:
@@ -106,7 +106,7 @@ class MythonParser:
         else:
             os.system(command)
 
-        os.remove(MythonParser.TEMPFILE)
+        os.remove(MynathonParser.TEMPFILE)
         return result
 
 
@@ -115,4 +115,4 @@ if __name__ == '__main__':
         print("USAGE:\n\t$ {0} FILE_NAME".format(sys.argv[0]))
         exit(1)
 
-    MythonParser.execute_script_from_file(sys.argv[-1])
+    MynathonParser.execute_script_from_file(sys.argv[-1])

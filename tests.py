@@ -1,17 +1,17 @@
 #!python3
 
-"""Mython tests."""
+"""Mynathon tests."""
 
-from mython import MythonParser
+from mynathon import MynathonParser
 import unittest
 
 
-class TestMythonParser(unittest.TestCase):
-    """Class defining test cases for the mython parser."""
+class TestMynathonParser(unittest.TestCase):
+    """Class defining test cases for the mynathon parser."""
 
     def _test_script_from_file(self, testcase, expected_output):
         filepath = "testscripts/{0}.my".format(testcase)
-        output = MythonParser.execute_script_from_file(filepath, True)
+        output = MynathonParser.execute_script_from_file(filepath, True)
         self.assertEqual(expected_output, output)
 
     def test_factorial(self):
@@ -23,8 +23,8 @@ class TestMythonParser(unittest.TestCase):
         self._test_script_from_file("factorial", expected_output)
 
     def test_keywords_are_valid(self):
-        """Test that the mython keywords are not ambiguous."""
-        keywords = MythonParser.KEYWORDS.keys()
+        """Test that the mynathon keywords are not ambiguous."""
+        keywords = MynathonParser.KEYWORDS.keys()
 
         for keyword in keywords:
             for keyword2 in filter(lambda k: k != keyword, keywords):
