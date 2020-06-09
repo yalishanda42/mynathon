@@ -22,6 +22,19 @@ class TestMythonParser(unittest.TestCase):
 
         self._test_script_from_file("factorial", expected_output)
 
+    def test_keywords_are_valid(self):
+        """Test that the mython keywords are not ambiguous."""
+        keywords = MythonParser.KEYWORDS.keys()
+
+        for keyword in keywords:
+            for keyword2 in filter(lambda k: k != keyword, keywords):
+                if keyword in keyword2.split():
+                    self.fail("Keyword '{0}' is contained in '{1}'; "
+                              "this may cause unpredictable behaviour."
+                              .format(keyword, keyword2))
+
+        self.assertTrue(True)
+
 
 if __name__ == '__main__':
     unittest.main()
