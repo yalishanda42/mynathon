@@ -1,5 +1,7 @@
 # MYTHON
 
+![Build](https://github.com/allexks/mython/workflows/Python%20package/badge.svg)
+
 ## Ключови думи
 * `True` => `трю`
 * `False` => `бомбок`
