@@ -98,7 +98,7 @@ class MythonParser:
         with open(MythonParser.TEMPFILE, "w+") as fwrite:
             fwrite.write(contents)
 
-        command = f"cat {MythonParser.TEMPFILE} | python3"
+        command = "cat {0} | python3".format(MythonParser.TEMPFILE)
 
         result = None
         if return_output:
@@ -112,7 +112,7 @@ class MythonParser:
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print(f"USAGE:\n\t{sys.argv[0]} FILE_NAME")
+        print("USAGE:\n\t$ {0} FILE_NAME".format(sys.argv[0]))
         exit(1)
 
     MythonParser.execute_script_from_file(sys.argv[-1])

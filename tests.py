@@ -10,7 +10,7 @@ class TestMythonParser(unittest.TestCase):
     """Class defining test cases for the mython parser."""
 
     def _test_script_from_file(self, testcase, expected_output):
-        filepath = f"testscripts/{testcase}.my"
+        filepath = "testscripts/{0}.my".format(testcase)
         output = MythonParser.execute_script_from_file(filepath, True)
         self.assertEqual(expected_output, output)
 
