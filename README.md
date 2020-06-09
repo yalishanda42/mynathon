@@ -2,6 +2,8 @@
 
 ![Build](https://github.com/allexks/mython/workflows/Python%20package/badge.svg)
 
+![Моля](https://media.tenor.com/images/139208d8296e1e01a6e3fc41a14d624d/tenor.gif)
+
 ## Ключови думи
 * `True` => `трю`
 * `False` => `бомбок`
