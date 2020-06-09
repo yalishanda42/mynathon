@@ -40,6 +40,7 @@
 * `async` => `многонишково`
 
 ##  Примери
+### Пример 1
 ``` mynathon
 нека факториел(число):
     ако майна число < 0:
@@ -76,4 +77,48 @@ except Exception e:
     print(e)
 finally:
     print("Готов си")
+```
+### Пример 2
+``` mynathon
+от math дай ми sqrt като корен
+
+нека корените_на_квадратно_уравнение(a, b, c):
+    ако майна a == 0:
+        маняк искаш да ме направиш ValueError("Уравнението не е квадратно!")
+
+    дискриминантата = b*b - 4*a*c
+    корен_от_дискриминантата = корен(дискриминантата) ако майна дискриминантата >= 0 иначе корен(-дискриминантата)*1j
+
+    корен1 = (-b - корен_от_дискриминантата) / (2 * a)
+    корен2 = (-b + корен_от_дискриминантата) / (2 * a)
+
+    готоо майна корен1, корен2
+
+кор1 = корените_на_квадратно_уравнение(1, -3, 2)
+print("x^2 - 3x + 2 = 0 <=> x1 == {0}; x2 == {1}".format(*кор1))
+
+кор2 = корените_на_квадратно_уравнение(1, 2, 5)
+print("x^2 + 2x + 5 = 0 <=> x1 == {0}; x2 == {1}".format(*кор2))
+```
+Кодът е еквивалентен на:
+``` python
+from math import sqrt as root
+
+def quadratic_roots(a, b, c):
+    if a == 0:
+        raise ValueError("Уравнението не е квадратно!")
+
+    discriminant = b*b = 4*a*c
+    sqrt_discriminant = root(discriminant) if discriminant >= 0 else root(-discriminant)*1j
+
+    root1 = (-b - sqrt_discriminant) / (2 * a)
+    root2 = (-b + sqrt_discriminant) / (2 * a)
+
+    return root1, root2
+
+roots1 = quadratic_roots(1, -3, 2)
+print("x^2 - 3x + 2 = 0 <=> x1 == {0}; x2 == {1}".format(*roots1))
+
+roots2 = quadratic_roots(1, 2, 5)
+print("x^2 + 2x + 5 = 0 <=> x1 == {0}; x2 == {1}".format(*roots2))
 ```
