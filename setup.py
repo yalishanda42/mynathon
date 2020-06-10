@@ -7,7 +7,7 @@ HERE = pathlib.Path(__file__).parent
 README = (HERE / "README.md").read_text()
 
 REPO_URL = 'https://github.com/allexks/mynathon'
-VERSION = '1.0.0'
+VERSION = '0.1.0'
 
 setup(
   name='mynathon',
