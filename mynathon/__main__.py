@@ -10,7 +10,7 @@ def entry_point():
         print("USAGE:\n\t$ {0} file_name".format(sys.argv[0]))
         exit(1)
 
-    filepath = pathlib.Path(sys.argv[-1])
+    filepath = pathlib.Path(sys.argv[-1]).as_posix()
     MynathonParser.execute_script_from_file(filepath)
 
 

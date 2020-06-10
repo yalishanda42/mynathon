@@ -13,7 +13,8 @@ class TestMynathonParser(unittest.TestCase):
     def _test_script_from_file(self, testcase, expected_output):
         directory = pathlib.Path(__file__).parent
         filepath = directory / "testscripts/{0}.my".format(testcase)
-        output = MynathonParser.execute_script_from_file(filepath, True)
+        filepath_str = filepath.as_posix()
+        output = MynathonParser.execute_script_from_file(filepath_str, True)
         self.assertEqual(expected_output, output)
 
     def test_factorial(self):
