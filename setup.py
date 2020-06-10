@@ -20,7 +20,7 @@ setup(
   author='Alexander Ignatov',
   author_email='yalishanda@abv.bg',
   url=REPO_URL,
-  download_url=f'{REPO_URL}/archive/{VERSION}.tar.gz',
+  download_url='{0}/archive/{1}.tar.gz'.format(REPO_URL, VERSION),
   scripts=["bin/mynathon"],
   entry_points={
     "entry_points": [
