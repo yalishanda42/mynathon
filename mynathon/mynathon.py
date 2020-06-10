@@ -2,12 +2,11 @@
 
 """Mynathon.
 
-The language of 411.
+The universal language of mainas and manqks.
 
 (c) 2020 AJ & MC Ton4ou
 """
 
-import sys
 import os
 from io import BytesIO
 from tokenize import tokenize, untokenize, NAME
@@ -33,7 +32,7 @@ class MynathonParser:
         "скандал": "break",
         "дайму още": "continue",
         "маняк искаш да ме направиш": "raise",
-        "маняк ти ибеш ли са": "assert",
+        "маняк ти иеш ли са": "assert",
         "пробвай майна": "try",
         "яба гръмна ми": "except",
         "кат цяло": "finally",
@@ -42,14 +41,14 @@ class MynathonParser:
         "нека": "def",
         "готоо майна": "return",
         "метни му": "yield",
-        "хаскелче": "lambda",
+        "гърция": "lambda",
         "от": "from",
         "дай ми": "import",
         "като": "as",
         "праскай": "with",
         "мани го тоа бе майна": "del",
         "софия": "nonlocal",
-        "асеновград": "global",
+        "кичука": "global",
         "изчакай": "await",
         "многонишково": "async",
     }
