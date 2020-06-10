@@ -4,13 +4,15 @@
 
 from mynathon import MynathonParser
 import unittest
+import pathlib
 
 
 class TestMynathonParser(unittest.TestCase):
     """Class defining test cases for the mynathon parser."""
 
     def _test_script_from_file(self, testcase, expected_output):
-        filepath = "testscripts/{0}.my".format(testcase)
+        directory = pathlib.Path(__file__).parent
+        filepath = directory / "testscripts/{0}.my".format(testcase)
         output = MynathonParser.execute_script_from_file(filepath, True)
         self.assertEqual(expected_output, output)
 

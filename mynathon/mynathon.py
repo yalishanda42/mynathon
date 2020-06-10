@@ -108,11 +108,3 @@ class MynathonParser:
 
         os.remove(MynathonParser.TEMPFILE)
         return result
-
-
-if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("USAGE:\n\t$ {0} FILE_NAME".format(sys.argv[0]))
-        exit(1)
-
-    MynathonParser.execute_script_from_file(sys.argv[-1])
