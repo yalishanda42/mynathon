@@ -1,6 +1,7 @@
 # Mynathon - Универсалният програмен език за майни и маняци.
 
 ![Build](https://github.com/allexks/mython/workflows/Python%20package/badge.svg)
+[![Downloads](https://static.pepy.tech/personalized-badge/mynathon?period=total&units=international_system&left_color=black&right_color=blue&left_text=%D0%A2%D0%B5%D0%B3%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F)](https://pepy.tech/project/mynathon)
 
 ![Моля](https://media.tenor.com/images/139208d8296e1e01a6e3fc41a14d624d/tenor.gif)
 
@@ -43,11 +44,24 @@
 
 ##  Инсталация
 
-`$ pip3 install mynathon`
+`pip install mynathon`
+
+## Инструкции
+
+Пиши на майнатън все едно си пишеш на питоня, обаче като се наложи да ползваш някоя ключова дума я замени така както горе е показано. Можеш да си ползваш кирилица даже като си кръщаваш нещата, няма проблеми.
 
 ##  Употреба
 
-`$ mynathon {име_на_mynathon_скрипт_файла}`
+### Изпълнение на файл с майнатън код
+
+`mynathon {име_на_файла}`
+
+### Използване на майнатън парсъра в питонски код
+
+```python
+from mynathon import MynathonParser
+# Повече информация за методите е достъпна в mynathon.py
+```
 
 ##  Примери
 ### Пример 1
@@ -132,3 +146,13 @@ print("x^2 - 3x + 2 = 0 <=> x1 == {0}; x2 == {1}".format(*roots1))
 roots2 = quadratic_roots(1, 2, 5)
 print("x^2 + 2x + 5 = 0 <=> x1 == {0}; x2 == {1}".format(*roots2))
 ```
+
+## Нещо не бачка?
+
+Отвори ново issue и си излей душата.
+
+Ако отвориш пък pull request с готово решение/добавка/предложение, ще се псуваме по-малко.
+
+## Лиценз
+
+[От скъпото](LICENSE)
