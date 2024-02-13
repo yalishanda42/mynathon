@@ -16,7 +16,7 @@ class MynathonParser:
     """The class that is capable of converting mynathon to python."""
 
     KEYWORDS = {
-        "трю": "True",
+        "харабия": "True",
         "бомбок": "False",
         "и": "and",
         "или": "or",
