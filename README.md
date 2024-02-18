@@ -6,7 +6,7 @@
 ![Моля](https://media.tenor.com/images/139208d8296e1e01a6e3fc41a14d624d/tenor.gif)
 
 ## Ключови думи
-* `True` => `трю`
+* `True` => `харабия`
 * `False` => `бомбок`
 * `and` => `и`
 * `or` => `или`
